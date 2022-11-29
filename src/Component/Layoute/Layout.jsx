@@ -12,7 +12,7 @@ function Layout() {
             <SideBar />
             <Routes>
                 {routepath.map((i, index) => {
-                    {console.log("i",i);}
+                     {console.log("Layout + i",i);}
                     if (i.private) {
                         return (
                             <Route

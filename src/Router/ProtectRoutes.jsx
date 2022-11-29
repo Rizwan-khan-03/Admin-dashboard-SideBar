@@ -1,21 +1,26 @@
 import { Navigate } from "react-router-dom";
 // import { getToken } from "../App/Services/Service";
-import React , { useState,useEffect }from 'react';
+import React, {useEffect} from 'react'
+import { useNavigate } from "react-router-dom";
 
+const ProtectRoutes = ({Component}) => {
+    const navigate = useNavigate()
+    useEffect(()=>{
+        let token = (localStorage.getItem("jwtToken"))
+          if (token){
+            navigate('/laout')
+          }
+          else{
+            navigate('/')
+          }
+      }, [])
 
+  return (
+    <>
+    <Component/>
+    </>
+  )
+}
 
-const ProtectRoutes = ({ children }) => {
-  // useEffect(()=>{
-    
-  // })
-
-  const token = localStorage.getItem('jwtToken')
-  console.log("token :",token);
-
-  if (!token) {
-    return <Navigate to="/" />;
-  }
-  return children;
-};
-
-export default ProtectRoutes;
+export default ProtectRoutes
+;

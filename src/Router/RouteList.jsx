@@ -17,17 +17,17 @@ export const routepath = [
     private: true,
   },
   {
-    path: "layout/link1",
+    path: "/layout/link1",
     Element: Link1,
     private: true,
   },
   {
-    path: "layout/link2",
+    path: "/layout/link2",
     Element: Link2,
     private: true,
   },
   {
-    path: "layout/link3",
+    path: "/layout/link3",
     Element: Link3,
     private: true,
   },

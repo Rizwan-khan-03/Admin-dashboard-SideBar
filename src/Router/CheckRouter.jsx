@@ -9,7 +9,7 @@ export const CheckRouter = () => {
     <div>
       <Routes>
         {routepath.map((i,index) => {
-           {console.log("i",i);}
+           {console.log(" CheckRouter + i",i);}
           if (!i.private) {
             return (
               <Route
