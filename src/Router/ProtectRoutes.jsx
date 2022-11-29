@@ -1,26 +1,15 @@
-import { Navigate } from "react-router-dom";
-// import { getToken } from "../App/Services/Service";
-import React, {useEffect} from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Route, Redirect } from 'react-router-dom'
+import Login from '../Pages/Login';
 
-const ProtectRoutes = ({Component}) => {
-    const navigate = useNavigate()
-    useEffect(()=>{
-        let token = (localStorage.getItem("jwtToken"))
-          if (token){
-            navigate('/laout')
-          }
-          else{
-            navigate('/')
-          }
-      }, [])
+const PrivateRoute = ({ children }) => {
+  useEffect(() => {
+    let token = localStorage.getItem('jwtTken')
+    if (!token) {
+      return <Login />;
+    } else return children;
+  }, [])
+};
 
-  return (
-    <>
-    <Component/>
-    </>
-  )
-}
+export default PrivateRoute;
 
-export default ProtectRoutes
-;

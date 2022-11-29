@@ -10,12 +10,28 @@ export default function Router() {
   return (
     <div>
       <Routes>
-        <Route path='/'>
-          <Route index element={<ProtectRoutes Component={Login} />}/>
+        <Route
+          path="/"
+          element={
+            < Login />
+          }
+        />
+        <Route
+          path="/layout"
+          element={
+            <ProtectRoutes>
+              <Layout />
+            </ProtectRoutes>
+          }
+        />
+        {/* <Route path='/'>
+          <Route index Component={Login} />
         </Route>
         <Route path='/'>
-          <Route index element={<ProtectRoutes Component ={Layout} />} />
-        </Route>
+          <ProtectRoutes exact path='/layout' component={Layout} />
+        </Route> */}
+        {/* <Route exact path='/' component={Login} />
+        <Route exact path='/login' component={Login} /> */}
         {/* {
           routepath?.map((i, index) => {
             {console.log(" Router + i",i);}
