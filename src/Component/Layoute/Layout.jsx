@@ -8,17 +8,16 @@ import ProtectRoutes from '../../Router/ProtectRoutes';
 function Layout() {
     return (
         <div>
-
             <SideBar />
             <Routes>
                 {routepath.map((i, index) => {
-                     {console.log("Layout + i",i);}
                     if (i.private) {
                         return (
                             <Route
                                 key={`routes_${index}`}
                                 path={i.path}
-                                element={<ProtectRoutes>{<i.Element />}</ProtectRoutes>}
+                                // element={<i.Element />}
+                                element={<ProtectRoutes Component={i.Element } />} 
                             />
                         );
                     } else {

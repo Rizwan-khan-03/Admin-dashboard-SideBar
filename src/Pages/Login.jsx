@@ -11,7 +11,6 @@ function Login() {
   const [form ,setForm] =useState({
     email:'',
     password:''
-
   })
   function onchangeHandeler(e) {
     e.preventDefault();
@@ -19,13 +18,13 @@ function Login() {
     let val = e.target.value;
     var new_form = form;
     new_form[nam] = val;
-    setForm({ data: new_form });
+    setForm({...new_form});
   }
   const onSubmitHandler =()=>{
 if(form){
   localStorage.setItem('jwtToken',"4e4b953b952d986cf06043aa0d1a06aee4bbf039")
   console.log('form',form);
-  navigate("/layout")
+  navigate(`/layout`)
 }
   
 
@@ -34,7 +33,6 @@ if(form){
 
     <Container>
       <Row>
-
         <Col xs={12} md={6} lg={6}>
           <div><Form onSubmit={onSubmitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -58,9 +56,6 @@ if(form){
               name="password"
                 value={form.password}
                 onChange={(e) => onchangeHandeler(e)} />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
