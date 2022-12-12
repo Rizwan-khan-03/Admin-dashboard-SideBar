@@ -31,9 +31,9 @@ if(form){
   }
   return (
 
-    <Container>
-      <Row>
-        <Col xs={12} md={6} lg={6}>
+    <Container fluid>
+      <Row className="justify-content-md-center align-middle">
+        <Col xs={12} md={4} lg={4}>
           <div><Form onSubmit={onSubmitHandler}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -43,9 +43,7 @@ if(form){
                 name="email"
                 value={form.email}
                 onChange={(e) => onchangeHandeler(e)}/>
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
+             
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">

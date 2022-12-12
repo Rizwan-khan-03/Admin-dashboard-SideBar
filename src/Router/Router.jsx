@@ -10,7 +10,7 @@ export default function Router() {
     <div>
       <Routes>
         <Route path='/'>
-          <Route index element={<ProtectRoutes Component={Login} />} />
+          <Route index element={<Login />} />
         </Route>
         <Route path='/layout'>
           <Route index path='*' element={<ProtectRoutes Component={Layout}/>} />       
