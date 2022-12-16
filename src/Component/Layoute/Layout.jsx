@@ -9,79 +9,60 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import Card from 'react-bootstrap/Card';
 import React from 'react'
 import Header from "./Header";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function Layout() {
-      return (
-        <div><div class="container-fluid">
+    return (
+        <div>
+            <Container fluid >
+                <Row >
+                    <Col>
+                        <Navbar expand="lg" variant="light" bg="light">
+                            <Container>
+                                <Navbar.Brand href="#">Navbar</Navbar.Brand>
+                            </Container>
+                        </Navbar>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <div class="container-fluid">
+                            <div class="row flex-nowrap">
+                                <SideBar />
+                                <div class="col py-3">
+                                    <Routes>
+                                        {routepath.map((i, index) => {
+                                            if (i.private) {
+                                                return (
+                                                    <Route
+                                                        key={`routes_${index}`}
+                                                        path={i.path}
 
-        <div class="row flex-nowrap">
+                                                        element={<ProtectRoutes Component={i.Element} />}
+                                                    />
+                                                );
+                                            } else {
+                                                return (
+                                                    <Route key={`routes_${index}`} path="*" element={<Notfound />} />
+                                                );
+                                            }
+                                        })}
+                                    </Routes>
+                                </div>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
 
-             <SideBar /> 
-  
-            <div class="col py-3">
-                         <Routes>
-                     {routepath.map((i, index) => {
-                         if (i.private) {
-                             return (
-                                 <Route
-                                     key={`routes_${index}`}
-                                     path={i.path}
 
-                                     element={<ProtectRoutes Component={i.Element } />} 
-                                 />
-                             );
-                         } else {
-                             return (
-                                 <Route key={`routes_${index}`} path="*" element={<Notfound />} />
-                             );
-                         }
-                     })}
-                 </Routes>
-            </div>
+            </Container>
         </div>
-    </div></div>
-      )
-    // return (
-    //     <div>
-    //         <div>
-    //             <div class="container-fluid">
+    )
 
-    //                 <div class="row flex-nowrap">
-    //                     <Card >
-    //                         <Card.Body>
-    //                             <Card.Header>  <SideBar /> Featured</Card.Header>
-    //                             {/* <SideBar /> */}
-    //                             <Card.Text>
-    //                                 <div class="col ">
-    //                                     <Routes>
-    //                                         {routepath.map((i, index) => {
-    //                                             if (i.private) {
-    //                                                 return (
-    //                                                     <Route
-    //                                                         key={`routes_${index}`}
-    //                                                         path={i.path}
-
-    //                                                         element={<ProtectRoutes Component={i.Element} />}
-    //                                                     />
-    //                                                 );
-    //                                             } else {
-    //                                                 return (
-    //                                                     <Route key={`routes_${index}`} path="*" element={<Notfound />} />
-    //                                                 );
-    //                                             }
-    //                                         })}
-    //                                     </Routes>
-    //                                 </div>
-    //                             </Card.Text>
-    //                         </Card.Body>
-    //                     </Card>
-    //                 </div>
-    //             </div>
-    //         </div>
-
-
-    //     </div>
-    // )
 }
 
 export default Layout

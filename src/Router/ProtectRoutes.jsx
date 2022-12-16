@@ -16,22 +16,14 @@ const PrivateRoute = ({ Component }) => {
   useEffect(() => {
       if (!isAuthenticated) {
         navigate('/')
-     
-    }
-    else {
-      navigate('/layout')
     }
 
   }, [])
 
   return (
     <>
-     
-       
     { isAuthenticated &&<Component  />}
         </>
-    
-  
   )
 }
 
