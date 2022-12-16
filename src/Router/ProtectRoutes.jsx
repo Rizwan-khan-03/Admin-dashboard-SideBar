@@ -14,7 +14,7 @@ const PrivateRoute = ({ Component }) => {
 //   dispatch(getNavigate())
 
   useEffect(() => {
-      if (!isAuthenticated) {
+      if (isAuthenticated === false) {
         navigate('/')
     }
 

@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate()
   const handlelogOut = (event) => {
-    localStorage.setItem("isAuthenticated", "false");
+    localStorage.removeItem('isAuthenticated');
     navigate('/')
     console.log("click");
 };
