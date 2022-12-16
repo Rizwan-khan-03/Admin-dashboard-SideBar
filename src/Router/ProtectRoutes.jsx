@@ -1,24 +1,41 @@
-import React, { useEffect } from 'react';
+
+import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-import { Navigate, Outlet } from 'react-router-dom';
+// import { getNavigate } from '../../../Store/Action';
+import { useSelector, useDispatch } from 'react-redux'
+
+
 const PrivateRoute = ({ Component }) => {
+
   const navigate = useNavigate()
-   const isAuthenticated = localStorage.getItem("isAuthenticated");
-  let token = localStorage.getItem('jwtToken')
-  // useEffect(() => {
-  //   if (!token) navigate('/')
+//   const dispatch = useDispatch();
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
 
-  // }, [])
-  // return (
-  //   <>
-  //   {token && <Component />}
+//   dispatch(getNavigate())
 
-  //   </>
-  // )
-  return token ? <Component /> : <Navigate to="/" />;
-};
+  useEffect(() => {
+      if (!isAuthenticated) {
+        navigate('/')
+     
+    }
+    else {
+      navigate('/layout')
+    }
 
-export default PrivateRoute;
+  }, [])
+
+  return (
+    <>
+     
+       
+    { isAuthenticated &&<Component  />}
+        </>
+    
+  
+  )
+}
+
+export default PrivateRoute
 
 
 
