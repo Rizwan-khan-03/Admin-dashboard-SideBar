@@ -14,20 +14,32 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function Layout() {
     return (
         <div>
             <Container fluid >
-                <Row >
+                {/* <Row >
                     <Col>
                         <Navbar expand="lg" variant="light" bg="light">
-                            <Container>
-                                <Navbar.Brand href="#">Navbar</Navbar.Brand>
+                            <Container fluid>
+                                <Navbar.Brand href="#">Navbar</Navbar.Brand>    
+                                <Form className="d-flex">
+                                    <Form.Control
+                                        type="search"
+                                        placeholder="Search"
+                                        className="me-2"
+                                        aria-label="Search"
+                                    />
+                                    <Button variant="outline-success">Logout</Button>
+                                </Form>
                             </Container>
                         </Navbar>
                     </Col>
-                </Row>
+                </Row> */}
+                <Header />
                 <Row>
                     <Col>
                         <div class="container-fluid">
