@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 // import { getNavigate } from '../../../Store/Action';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'redux'
 
 
 const PrivateRoute = ({ Component }) => {

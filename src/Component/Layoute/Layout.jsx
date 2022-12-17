@@ -2,7 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 import Notfound from '../../Pages/Notfound';
 import { routepath } from '../../Router/RouteList';
-import SideBar from './SideBar';
+import SideBar from './Sidebar';
 import ProtectRoutes from '../../Router/ProtectRoutes';
 import { Link, NavLink } from "react-router-dom";
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
@@ -21,24 +21,7 @@ function Layout() {
     return (
         <div>
             <Container fluid >
-                {/* <Row >
-                    <Col>
-                        <Navbar expand="lg" variant="light" bg="light">
-                            <Container fluid>
-                                <Navbar.Brand href="#">Navbar</Navbar.Brand>    
-                                <Form className="d-flex">
-                                    <Form.Control
-                                        type="search"
-                                        placeholder="Search"
-                                        className="me-2"
-                                        aria-label="Search"
-                                    />
-                                    <Button variant="outline-success">Logout</Button>
-                                </Form>
-                            </Container>
-                        </Navbar>
-                    </Col>
-                </Row> */}
+              
                 <Header />
                 <Row>
                     <Col>
