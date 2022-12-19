@@ -1,0 +1,8 @@
+.page_background{
+    background:linear-gradient(180deg, rgba(166,240,255,1) 0%, rgba(220,250,255,1) 49%, rgba(230,252,255,1) 100%);
+    width: 100% !important;
+    height: 100vh;
+}
+button.btn.btn-primary.btn-lg.btn-block {
+    width: 100% !important;
+}

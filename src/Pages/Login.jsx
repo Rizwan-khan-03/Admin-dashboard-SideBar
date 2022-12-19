@@ -1,72 +1,4 @@
-// import React , { useState }from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import { useNavigate } from "react-router-dom";
 
-// function Login() {
-//   const navigate = useNavigate();
-//   const [form ,setForm] =useState({
-//     email:'',
-//     password:''
-//   })
-//   function onchangeHandeler(e) {
-//     e.preventDefault();
-//     let nam = e.target.name;
-//     let val = e.target.value;
-//     var new_form = form;
-//     new_form[nam] = val;
-//     setForm({...new_form});
-//   }
-//   const onSubmitHandler =()=>{
-// if(form){
-//   localStorage.setItem('jwtToken',"4e4b953b952d986cf06043aa0d1a06aee4bbf039")
-//   console.log('form',form);
-//   navigate(`/layout`)
-// }
-  
-
-//   }
-//   return (
-
-//     <Container fluid>
-//       <Row className="justify-content-md-center align-middle">
-//         <Col xs={12} md={4} lg={4}>
-//           <div><Form onSubmit={onSubmitHandler}>
-//             <Form.Group className="mb-3" controlId="formBasicEmail">
-//               <Form.Label>Email address</Form.Label>
-//               <Form.Control
-//                type="email"
-//                 placeholder="Enter email" 
-//                 name="email"
-//                 value={form.email}
-//                 onChange={(e) => onchangeHandeler(e)}/>
-             
-//             </Form.Group>
-
-//             <Form.Group className="mb-3" controlId="formBasicPassword">
-//               <Form.Label>Password</Form.Label>
-//               <Form.Control 
-//               type="password" 
-//               placeholder="Password"
-//               name="password"
-//                 value={form.password}
-//                 onChange={(e) => onchangeHandeler(e)} />
-//             </Form.Group>
-//             <Button variant="primary" type="submit">
-//               Submit
-//             </Button>
-//           </Form></div>
-//         </Col>
-
-//       </Row>
-//     </Container>
-//   )
-// }
-
-// export default Login
 import React, { useState } from "react";
 import { useDispatch } from "redux";
 import { useNavigate } from "react-router-dom";
@@ -102,58 +34,57 @@ function Signin() {
       setErrorMessage((prevState) => ({ value: "Invalid username/password" }));
     }
   };
-//   const onSubmitHandler =()=>{
-// if(form){
-//   localStorage.setItem('jwtToken',"4e4b953b952d986cf06043aa0d1a06aee4bbf039")
-//   console.log('form',form);
-//   navigate(`/layout`)
-// }
-  
 
-//   }
   return (
-    <div className="text-center">
-      <h1>Signin User</h1>
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div className="form-group">
-          <label>Username</label>
-          <input
-            className="form-control"
-            type="text"
-            name="username"
-            onChange={(e) => handleInputChange(e)}
-          />
-        </div>
+    
+    <section class="vh-100" style={{ background: 'linear-gradient(180deg, rgba(166,240,255,1) 0%, rgba(220,250,255,1) 49%, rgba(230,252,255,1) 100%)' }}>
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style={{ borderRadius: "1rem" }}>
+              <div class="card-body p-5 text-center">
+                <form onSubmit={handleSubmit}>
+                  <h3 class="mb-5">Sign in</h3>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="tex" id="typeEmailX-2" class="form-control form-control-lg" placeholder="admin"
+                      name="username"
+                      onChange={(e) => handleInputChange(e)}
+                    />
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password"
+                      name="password"
+                      onChange={(e) => handleInputChange(e)}
+                    />
+                  </div>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            className="form-control"
-            type="password"
-            name="password"
-            onChange={(e) => handleInputChange(e)}
-          />
-        </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
 
-        {errorMessage.value && (
-          <p className="text-danger"> {errorMessage.value} </p>
-        )}
-      </form>
-    </div>
+                  <div class="form-check d-flex justify-content-start mb-4">
+                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                    <label class="form-check-label" for="form1Example3"> Remember password </label>
+                  </div>
+                  {errorMessage.value && (
+                    <p className="text-danger"> {errorMessage.value} </p>
+                  )}
+                  <button class="btn btn-primary btn-lg btn-block" type="submit"
+                    style={{ background: 'linear-gradient(180deg, rgba(166,240,255,1) 0%, rgba(220,250,255,1) 49%, rgba(230,252,255,1) 100%)', color: "black" }}>
+                    Login</button>
+
+                  <hr class="my-4" />
+
+                  <button class="btn btn-lg btn-block btn-primary mb-2" style={{ backgroundColor: "#dd4b39" }}
+                    type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
+                  <button class="btn btn-lg btn-block btn-primary mb-2" style={{ backgroundColor: "#3b5998" }}
+                    type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

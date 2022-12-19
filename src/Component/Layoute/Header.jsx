@@ -2,7 +2,6 @@
 import { Route, Routes } from "react-router-dom";
 import Notfound from '../../Pages/Notfound';
 import { routepath } from '../../Router/RouteList';
-import SideBar from './SideBar';
 import ProtectRoutes from '../../Router/ProtectRoutes';
 import { Link, NavLink } from "react-router-dom";
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
@@ -17,7 +16,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   const navigate = useNavigate()
   const handlelogOut = (event) => {
     localStorage.removeItem('isAuthenticated');
@@ -28,9 +27,19 @@ function Header() {
     <div>
       <Row >
         <Col>
-          <Navbar expand="lg" variant="light" bg="light">
+          <Navbar expand="lg" style={{
+          background:
+            'linear-gradient(180deg, rgba(166,240,255,1) 0%, rgba(220,250,255,1) 49%, rgba(230,252,255,1) 100%)',
+            paddingLeft:'12px'
+        }} >
             <Container fluid>
-              <Navbar.Brand href="#">Navbar</Navbar.Brand>
+              <Navbar.Brand href="#"> <button id="openNav" 
+               onClick={props.calback} class="w3-button w3-teal w3-xlarge"
+               style={{
+                background:
+                  'linear-gradient(180deg, rgba(166,240,255,1) 0%, rgba(220,250,255,1) 49%, rgba(230,252,255,1) 100%)',
+                  paddingLeft:'12px', paddingRight:'12px'
+              }}>&#9776;</button></Navbar.Brand>
               {/* <Form className="d-flex">
                 <Form.Control
                   type="search"
@@ -39,7 +48,13 @@ function Header() {
                   aria-label="Search"
                 />
               </Form> */}
-                <Button variant="outline-success"  onClick={handlelogOut}>Logout</Button>
+                <Button variant="outline-success"  onClick={handlelogOut}
+                style={{
+                  background:
+                    'linear-gradient(180deg, rgba(166,240,255,1) 0%, rgba(220 ,250,255,1) 49%, rgba(230,252,255,1) 100%)',
+                    marginRight: '18px'
+                }}
+                >Logout</Button>
             </Container>
           </Navbar>
         </Col>
