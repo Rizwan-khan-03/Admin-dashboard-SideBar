@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './page.css'
 
 function Link1() {
   return (
-    <div>Link1</div>
+    <div className='page_background'>Link1</div>
   )
 }
 

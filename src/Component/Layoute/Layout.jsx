@@ -2,7 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 import Notfound from '../../Pages/Notfound';
 import { routepath } from '../../Router/RouteList';
-import SideBar from './SideBar';
+
 import ProtectRoutes from '../../Router/ProtectRoutes';
 import { Link, NavLink } from "react-router-dom";
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
@@ -14,26 +14,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import SideBaar from "./SideBaar";
 
 function Layout() {
     return (
-        <div>
+        <div id="main">
             <Container fluid >
-                <Row >
-                    <Col>
-                        <Navbar expand="lg" variant="light" bg="light">
-                            <Container>
-                                <Navbar.Brand href="#">Navbar</Navbar.Brand>
-                            </Container>
-                        </Navbar>
-                    </Col>
-                </Row>
                 <Row>
                     <Col>
+                    <SideBaar />
+                    {/* <Header /> */}
                         <div class="container-fluid">
                             <div class="row flex-nowrap">
-                                <SideBar />
-                                <div class="col py-3">
+                                
+                                {/* <div class="col py-3">
                                     <Routes>
                                         {routepath.map((i, index) => {
                                             if (i.private) {
@@ -52,7 +48,7 @@ function Layout() {
                                             }
                                         })}
                                     </Routes>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </Col>
